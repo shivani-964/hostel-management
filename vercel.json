@@ -18,7 +18,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "/client-main/client-main/client/dist/$1"
+        "dest": "client-main/client-main/client/dist/$1"
       }
     ]
   }
