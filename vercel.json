@@ -1,25 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "client-main1/client-main/client-main/client/package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "dist" }
-      },
-      {
-        "src": "HMS-BACKEND-main1/HMS-BACKEND-main/HMS-BACKEND-main/backend/index.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "HMS-BACKEND-main1/HMS-BACKEND-main/HMS-BACKEND-main/backend/index.js"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "client-main1/client-main/client-main/client/dist/$1"
-      }
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
     ]
   }
-  
