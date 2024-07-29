@@ -2,7 +2,9 @@
     "version": 2,
     "builds": [
       {
-        "src": "/(.*)", "dest": "/"
+        "src": "client-main1/client-main/client-main/client/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist" }
       },
       {
         "src": "HMS-BACKEND-main1/HMS-BACKEND-main/HMS-BACKEND-main/backend/index.js",
@@ -19,9 +21,6 @@
         "dest": "client-main1/client-main/client-main/client/dist/$1"
       }
     ]
-    
   }
-
-  
 
   
