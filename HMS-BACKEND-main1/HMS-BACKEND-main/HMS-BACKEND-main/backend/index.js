@@ -4,12 +4,10 @@ const cors = require("cors");
 const { Hostel } = require("./models");
 
 const app = express();
-const port = 3000;
 
 connectDB();
 
 app.use(cors());
-
 app.use(express.json({ extended: false }));
 
 app.use("/api/auth", require("./routes/authRoutes"));
@@ -21,7 +19,6 @@ app.use("/api/messoff", require("./routes/messoffRoutes"));
 app.use("/api/request", require("./routes/requestRoutes"));
 app.use("/api/recipes", require("./routes/recipeRoute"));
 app.use("/api/checkin-checkout", require("./routes/checkincheckout"));
-
 app.use("/api/attendance", require("./routes/attendanceRoutes"));
 app.use("/api/suggestion", require("./routes/suggestionRoutes"));
 
@@ -42,15 +39,12 @@ app.post("/api/hostel/", async (req, res) => {
       data: hostel,
     });
   } catch (error) {
-    res.status(200).json({
+    res.status(500).json({
       message: "Internal Server Error",
       error: error,
     });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
-
+// Export the Express app for Vercel
 module.exports = app;
