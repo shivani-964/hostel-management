@@ -1,5 +1,27 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "/(.*)", "dest": "/"
+      },
+      {
+        "src": "HMS-BACKEND-main1/HMS-BACKEND-main/HMS-BACKEND-main/backend/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "HMS-BACKEND-main1/HMS-BACKEND-main/HMS-BACKEND-main/backend/index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "client-main1/client-main/client-main/client/dist/$1"
+      }
     ]
+    
   }
+
+  
+
+  
